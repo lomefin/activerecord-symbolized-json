@@ -1,8 +1,24 @@
 # ActiverecordSymbolizedJson
-Short description and motivation.
+When you use a JSON datatype with postgres in your project, the result is a stringified version of the hash, which translate to constant key transformations.
+This allows you to just declare the column in your model and replaces the accesor method to a symbol keyed hash
 
 ## Usage
-How to use my plugin.
+
+If you want to declare a column as json in a Rails project you can do so in a Migration
+
+```bash
+$ rails g migration AddDataToModel data:json
+```
+
+Then on your model you can add the `symbolized_json` with the name of the columns that you wish to read as symbolized hashes
+
+```ruby
+
+class Model
+
+  symbolized_json :data
+
+```
 
 ## Installation
 Add this line to your application's Gemfile:
